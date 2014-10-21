@@ -9,6 +9,7 @@ angular.module('ui.bootstrap-month-picker', []).directive('monthPicker', functio
 
             $scope.setPeriod = function (period) {
                 $scope.periods.length = 0;
+                $scope.class = $attrs.monthPickerBrand;
 
                 var start = window.moment(period).subtract(3, 'months').toDate();
 
