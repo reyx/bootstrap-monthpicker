@@ -9,7 +9,7 @@ angular.module('ui.bootstrap-month-picker', []).directive('monthPicker', functio
 
             $scope.setPeriod = function (period) {
                 $scope.periods.length = 0;
-                $scope.class = $attrs.monthPickerBrand;
+                $scope.brand = $attrs.monthPickerBrand;
 
                 var start = window.moment(period).subtract(3, 'months').toDate();
 
@@ -42,5 +42,5 @@ angular.module('ui.bootstrap-month-picker', []).directive('monthPicker', functio
 });
 
 angular.module('ui.bootstrap-month-picker').run(['$templateCache', function ($templateCache) {
-    $templateCache.put('bootstrap-monthpicker/bootstrap-monthpicker.html', '<button data-ng-click="goToCurrentMonth()" class="btn btn-default">  <i class="fa fa-calendar-o fa-only"></i></button><button data-ng-repeat="period in periods" data-ng-class="{ \'btn-success\': period.active }" data-ng-click="setPeriod(period.date)" class="btn btn-default half-left">  <i data-ng-if="$first" class="fa fa-chevron-left fa-only"></i>  <i data-ng-if="$last" class="fa fa-chevron-right fa-only"></i>  <span data-ng-if="!$first &amp;&amp; !$last" data-ng-bind="period.date | date: \'MMM\'" class="uppercase"></span>  <span data-ng-if="!$first &amp;&amp; !$last" data-ng-bind="period.date | date: \'yyyy\'"></span></button>');
+    $templateCache.put('bootstrap-monthpicker/bootstrap-monthpicker.html', '<button data-ng-click="goToCurrentMonth()" class="btn btn-default">  <i class="fa fa-calendar-o fa-only"></i></button><button data-ng-repeat="period in periods" data-ng-class="period.active ? \'btn-\' + brand : \'\'" data-ng-click="setPeriod(period.date)" class="btn btn-default half-left">  <i data-ng-if="$first" class="fa fa-chevron-left fa-only"></i>  <i data-ng-if="$last" class="fa fa-chevron-right fa-only"></i>  <span data-ng-if="!$first &amp;&amp; !$last" data-ng-bind="period.date | date: \'MMM\'" class="uppercase"></span>  <span data-ng-if="!$first &amp;&amp; !$last" data-ng-bind="period.date | date: \'yyyy\'"></span></button>');
 }]);
