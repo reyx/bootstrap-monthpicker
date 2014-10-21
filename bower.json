@@ -1,0 +1,24 @@
+{
+  "name": "bootstrap-monthpicker",
+  "main": "bootstrap-monthpicker.js",
+  "version": "0.0.1",
+  "authors": [
+    "reyx <regis.sabino@gmail.com>"
+  ],
+  "description": "Widget to select between months ui",
+  "keywords": [
+    "bootstrap",
+    "monthpicker",
+    "month",
+    "picker"
+  ],
+  "license": "MIT",
+  "homepage": "http://reyx.com.br",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

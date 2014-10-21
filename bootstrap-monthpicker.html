@@ -1,0 +1,9 @@
+<button data-ng-click="goToCurrentMonth()" class="btn btn-default">
+  <i class="fa fa-calendar-o fa-only"></i>
+</button>
+<button data-ng-repeat="period in periods" data-ng-class="{ 'btn-success': period.active }" data-ng-click="setPeriod(period.date)" class="btn btn-default half-left">
+  <i data-ng-if="$first" class="fa fa-chevron-left fa-only"></i>
+  <i data-ng-if="$last" class="fa fa-chevron-right fa-only"></i>
+  <span data-ng-if="!$first &amp;&amp; !$last" data-ng-bind="period.date | date: 'MMM'" class="uppercase"></span>
+  <span data-ng-if="!$first &amp;&amp; !$last" data-ng-bind="period.date | date: 'yyyy'"></span>
+</button>
