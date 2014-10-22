@@ -33,7 +33,7 @@ angular.module('ui.bootstrap-month-picker', []).directive('monthPicker', functio
 
                 if ($attrs.onMonthChange) {
                     var change = $attrs.onMonthChange.substring(0, $attrs.onMonthChange.indexOf('('));
-                    var _scope = scope;
+                    var _scope = $scope;
                     while (typeof (_scope[change]) === 'undefined') {
                         _scope = _scope.$parent;
                     }
