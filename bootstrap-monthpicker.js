@@ -30,6 +30,15 @@ angular.module('ui.bootstrap-month-picker', []).directive('monthPicker', functio
                 }
 
                 ngModel.$setViewValue(period);
+
+                if (attrs.onMonthChange) {
+                    var change = attrs.onMonthChange.substring(0, attrs.onMonthChange.indexOf('('));
+                    var _scope = scope;
+                    while (typeof (_scope[change]) === 'undefined') {
+                        _scope = _scope.$parent;
+                    }
+                    $parse(attrs.onMonthChange)(_scope, { period: period });
+                }
             };
 
             $scope.goToCurrentMonth = function () {
