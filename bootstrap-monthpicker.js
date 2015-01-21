@@ -9,6 +9,8 @@ angular.module('ui.bootstrap-month-picker', []).directive('monthPicker', ['$pars
                 $scope.periods = [];
 
                 $scope.setPeriod = function (period) {
+                    ngModel.$setViewValue(period);
+
                     $scope.periods.length = 0;
                     $scope.brand = $attrs.monthPickerBrand;
 
@@ -29,8 +31,6 @@ angular.module('ui.bootstrap-month-picker', []).directive('monthPicker', ['$pars
                             date: window.moment(start).add(idx, 'months').toDate()
                         });
                     }
-
-                    ngModel.$setViewValue(period);
                 };
 
                 $scope.goToCurrentMonth = function () {
